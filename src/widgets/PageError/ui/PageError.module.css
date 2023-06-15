@@ -1,4 +1,11 @@
 .PageError {
-    @apply w-full h-screen flex flex-col justify-center items-center
-    bg-bg-color;
+    @apply
+    w-full
+    h-screen
+    flex
+    flex-col
+    justify-center
+    items-center
+    bg-no-repeat
+    bg-cover;
 }

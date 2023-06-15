@@ -1,26 +1,20 @@
 .Navbar {
-    @apply w-full h-[--navbar-height] flex items-center 
-    duration-color-transition-global justify-between px-5 
+    @apply w-full h-[--navbar-height] flex items-center
+    duration-color-transition-global justify-between px-5
     bg-inverted-bg-color;
 }
 
-div {
-    @apply duration-color-transition-global;
-}
+
 .name {
     @apply text-size-l font-main leading-size-l text-primary-color
     duration-color-transition-global;
 }
 
 .links {
-    @apply flex;
+    @apply flex gap-3 items-center;
 }
 
 .mainLink,
 .aboutLink {
-    @apply text-size-l font-main leading-size-l text-primary-color duration-color-transition-global;
-}
-
-.mainLink {
-    @apply mr-5;
+    @apply text-size-m font-main leading-size-l text-primary-color duration-color-transition-global;
 }

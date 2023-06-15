@@ -1,5 +1,5 @@
 .AppLink {
-    color: var(--primary-color);
+    @apply text-[--primary-color];
 }
 
 .primary {

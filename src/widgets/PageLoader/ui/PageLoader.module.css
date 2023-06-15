@@ -1,4 +1,5 @@
 .pageLoader {
     @apply flex justify-center 
         items-center flex-grow;
+    height: calc(100vh - var(--navbar-height));
 }

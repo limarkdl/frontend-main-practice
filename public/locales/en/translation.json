@@ -1,13 +1,11 @@
 {
-  "Language": "EN",
-  "MainPage": "Main Page",
+  "NameLogo": "LIMARK",
   "MainLink": "Main",
-  "AboutLink": "About",
-  "SidebarToggleBt": "Menu",
-  "NotFoundPageText": "Page not found",
-  "LIMARKDL": "LIMARKDL",
-  "PageErrorMessage": "Something went wrong!",
-  "PageErrorApologizing": "We're sorry for the inconvenience. Please try again.",
-  "PageErrorTryAgain": "Try Again",
-  "BugBt": "Crash 💥"
+  "AboutLink": "About us",
+  "MainPage": "Main page",
+  "BugBt": "Crash",
+  "PageErrorMessage": "Something went wrong",
+  "PageErrorApologizing": "We apologize for any inconvenience caused",
+  "PageErrorTryAgain": "Reload page",
+  "SidebarToggleBt": ">>>"
 }

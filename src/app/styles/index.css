@@ -8,15 +8,22 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@layer utilities {
+    .page-loader-height {
+        height: calc(100vh - var(--navbar-height));
+    }
+}
+
+
 .app {
     @apply bg-bg-color text-primary-color 
         min-h-screen text-size-m duration-color-transition-global;
 }
 
 .content-page {
-    @apply flex;
+    @apply flex ;
 }
 
 .page-wrapper {
-    @apply grow p-5 text-[--inverted-primary-color];
+    @apply grow p-5 text-[--inverted-primary-color] duration-color-transition-global;
 }

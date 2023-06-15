@@ -22,7 +22,7 @@ const Button: FC<ButtonProps> = (props: ButtonProps) => {
     return (
         <button
             type="button"
-            className={classNames(cls.Button, { [cls[theme]]: theme }, [className])}
+            className={classNames(cls.test, { [cls[theme]]: theme }, [className])}
             {...otherProps}
         >
             {children}

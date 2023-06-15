@@ -1,7 +1,7 @@
 {
   "extends": [
     "stylelint-config-recommended",
-    "stylelint-8-point-grid"
+    "stylelint-config-tailwindcss"
   ],
   "rules": {
     "at-rule-no-unknown": null,

@@ -8,6 +8,10 @@ module.exports = {
                 'inverted-bg-color': 'var(--inverted-bg-color)',
                 'sidebar-bg-color': 'var(--sidebar-bg-color)',
             },
+            width: {
+                'sidebar': 'var(--sidebar-width)',
+                'sidebar-collapsed': 'var(--sidebar-width-collapsed)',
+            },
             fontSize: {
                 'size-l': 'var(--font-size-l)',
                 'size-m': 'var(--font-size-m)',
@@ -21,6 +25,8 @@ module.exports = {
             },
             height: {
                 sidebar: 'var(--sidebar-height)',
+                navbar: 'var(--navbar-height)',
+                loader: 'calc(100vh - var(--navbar-height))',
             },
             transitionDuration: {
                 'color-transition-global': 'var(--color-animation-duration)',

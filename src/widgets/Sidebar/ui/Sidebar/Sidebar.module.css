@@ -1,10 +1,10 @@
 .Sidebar {
-    @apply h-sidebar w-[--sidebar-width] relative 
-        bg-[--sidebar-bg-color] duration-color-transition-global flex-col text-center;
+    @apply h-sidebar w-sidebar relative
+        bg-sidebar-bg-color duration-color-transition-global flex-col text-center;
 }
 
 .collapsed {
-    @apply w-[--sidebar-width-collapsed];
+    @apply w-sidebar-collapsed;
 }
 
 .switchers {

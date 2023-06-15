@@ -10,8 +10,8 @@
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "lint:scss": "npx stylelint \"**/*.scss\"",
-    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
+    "lint:css": "npx stylelint \"**/*.css\"",
+    "lint:css:fix": "npx stylelint \"**/*.css\" --fix",
     "unit": "jest --config ./config/jest/jest.config.ts"
   },
   "repository": {
@@ -81,6 +81,7 @@
     "style-loader": "^3.3.1",
     "stylelint": "^14.5.3",
     "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-config-tailwindcss": "^0.0.7",
     "tailwindcss": "^3.3.2",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.5.0",
@@ -91,6 +92,9 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
     "concurrently": "^7.0.0",
@@ -101,6 +105,7 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "react-select": "^5.7.3"
   }
 }
