@@ -13,23 +13,37 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
       - name: Linting TypeScript
         run: npm run lint:ts
+
       - name: Linting CSS
         run: npm run lint:scss
+
       - name: Testing unit
         run: npm run test:unit
+
       - name: Build Storybook
         run: npm run storybook:build
+
       - name: Screenshot testing
         run: npm run test:ui:ci
+
       - name: Building project for production
         run: npm run build:prod
-
-
