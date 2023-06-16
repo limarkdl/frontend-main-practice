@@ -1,13 +1,11 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
 
-export function buildLoaders(
-    { isDevelopment }: BuildOptions,
-): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/,
-        use: ['@svgr/webpack', 'url-loader'],
+        use: ['@svgr/webpack'],
     };
 
     const babelLoader = {
@@ -17,8 +15,26 @@ export function buildLoaders(
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
+                plugins: [
+                    [
+                        'i18next-extract',
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true,
+                        },
+                    ],
+                ],
             },
         },
+    };
+
+    const cssLoader = buildCssLoader(isDev);
+
+    // Если не используем тайпскрипт - нужен babel-loader
+    const typescriptLoader = {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
     };
 
     const fileLoader = {
@@ -26,46 +42,6 @@ export function buildLoaders(
         use: [
             {
                 loader: 'file-loader',
-            },
-        ],
-    };
-
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
-
-    const cssLoader = {
-        test: /\.css$/i, // Only match .css files now
-        use: [
-            // Creates `style` nodes from JS strings
-            isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-            // Translates CSS into CommonJS
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: {
-                        auto: (resPath: string) => Boolean(
-                            resPath.includes('.module.'),
-                        ),
-                        localIdentName: isDevelopment
-                            ? '[path][name]__[local]--[hash:base64:5]'
-                            : '[hash:base64:8]',
-                    },
-                },
-            },
-            // PostCSS and TailwindCSS integration
-            {
-                loader: 'postcss-loader',
-                options: {
-                    postcssOptions: {
-                        plugins: [
-                            'tailwindcss',
-                            'autoprefixer',
-                        ],
-                    },
-                },
             },
         ],
     };

@@ -1,12 +1,13 @@
 import webpack from 'webpack';
+import path from 'path';
 import { BuildOptions } from './types/config';
+import { buildPlugins } from './buildPlugins';
 import { buildLoaders } from './buildLoaders';
 import { buildResolvers } from './buildResolvers';
-import { buildPlugins } from './buildPlugins';
 import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
-    const { paths, mode, isDevelopment } = options;
+    const { paths, mode, isDev } = options;
 
     return {
         mode,
@@ -15,19 +16,13 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             filename: '[name].[contenthash].js',
             path: paths.build,
             clean: true,
-
         },
+        plugins: buildPlugins(options),
         module: {
             rules: buildLoaders(options),
         },
         resolve: buildResolvers(options),
-        plugins: buildPlugins(options),
-        devtool: isDevelopment ? 'inline-source-map' : undefined,
-        devServer: isDevelopment ? buildDevServer(options) : undefined,
-        performance: {
-            hints: false,
-            maxAssetSize: 500000,
-            maxEntrypointSize: 500000,
-        },
+        devtool: isDev ? 'inline-source-map' : undefined,
+        devServer: isDev ? buildDevServer(options) : undefined,
     };
 }

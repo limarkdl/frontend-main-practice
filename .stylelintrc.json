@@ -1,23 +1,7 @@
 {
-  "extends": [
-    "stylelint-config-recommended",
-    "stylelint-config-tailwindcss"
-  ],
+  "extends": "stylelint-config-standard-scss",
   "rules": {
-    "at-rule-no-unknown": null,
-    "property-no-unknown": [
-      true,
-      {
-        "ignoreProperties": [
-          "compose"
-        ]
-      }
-    ],
-    "block-no-empty": null,
-    "unit-whitelist": ["em", "rem", "%", "s"]
-  },
-  "ignoreFiles": [
-    "**/node_modules/**",
-    "**/.next/**"
-  ]
+    "indentation": [4],
+    "selector-class-pattern": null
+  }
 }
