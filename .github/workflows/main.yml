@@ -27,3 +27,5 @@ jobs:
         run: npm run test:unit
       - name: Building project for production
         run: npm run build:prod
+      - name: Screenshot testing
+        run: npm run test:ui:ci
